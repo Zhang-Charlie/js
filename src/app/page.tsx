@@ -1,18 +1,46 @@
 import Image from "next/image";
 
 const techStack = [
-  "Go",
-  "Node.js",
-  "Next.js",
-  "Tailwind CSS",
-  "TypeScript",
-  "GraphQL",
-  "SQL",
-  "AWS",
-  "GCP",
-  "Electron",
-  "React",
+  { name: "Next.js", src: "/icons/nextjs.svg" },
+  { name: "Expo", src: "/icons/expo.svg" },
+  { name: "Express.js", src: "/icons/express.svg" },
+  { name: "Node.js", src: "/icons/nodejs.svg" },
+  { name: "HTML 5", src: "/icons/html5.svg" },
+  { name: "CSS 3", src: "/icons/css3.svg" },
+  { name: "TypeScript", src: "/icons/typescript.svg" },
+  { name: "Tailwind CSS", src: "/icons/tailwind.svg" },
+  { name: "Supabase", src: "/icons/supabase.svg" },
+  { name: "React.js", src: "/icons/react.svg" },
 ];
+
+export function TechStackSection() {
+  return (
+    <section className="w-full bg-[#111111] px-4 py-12 text-slate-100 sm:px-6">
+        <div className="mx-auto max-w-6xl space-y-8">
+          <h3 className="text-lg font-semibold sm:text-xl">Current tech stack</h3>
+          <div className="grid grid-cols-2 gap-6 text-center sm:grid-cols-3 md:grid-cols-5">
+            {techStack.map(({ name, src }) => (
+              <div
+                key={name}
+                className="group flex flex-col items-center gap-2 transition-transform duration-200 hover:-translate-y-1"
+              >
+                <Image
+                  src={src}
+                  alt={name}
+                  width={42}
+                  height={42}
+                  className="h-10 w-10 transition-transform duration-200 group-hover:scale-105"
+                />
+                <span className="text-sm font-medium text-gray-200 transition-colors duration-200 group-hover:text-white">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -71,29 +99,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="w-full border-t border-slate-300 bg-white px-4 py-12 text-slate-900 sm:px-6">
-        <div className="mx-auto max-w-6xl space-y-6 px-1">
-          <h3 className="text-xl font-bold sm:text-2xl">Tech I Use</h3>
-        </div>
-        <div className="w-full overflow-hidden pt-6">
-          <div className="flex min-w-[200%] items-center gap-8 whitespace-nowrap text-xl font-semibold sm:gap-10 sm:text-2xl md:text-3xl animate-[marquee_30s_linear_infinite]">
-            {[...techStack, ...techStack].map((tech, idx) => (
-              <span key={`${tech}-${idx}`} className="align-middle">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TechStackSection />
     </main>
   );
 }
-
-
-
-
-
-
-
-
