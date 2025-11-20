@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center px-6 py-16 text-[#e9eefc]">
       <div className="max-w-5xl text-center">
-        <h1 className="text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="block">
             Hello! I&apos;m{" "}
             <span className="text-[var(--color-accent)]">Charlie Zhang</span>,
@@ -12,7 +12,7 @@ export default function Home() {
           </span>
         </h1>
 
-        <p className="mx-auto mt-10 max-w-3xl text-lg font-medium leading-8 text-[#d2e1ff] sm:text-xl">
+        <p className="mx-auto mt-10 max-w-3xl text-base font-medium leading-8 text-[#d2e1ff] sm:text-lg">
           Driven by learning and a love for technology, I constantly explore new
           technologies and challenge my limits.
         </p>
