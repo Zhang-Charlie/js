@@ -77,20 +77,22 @@ export default function Home() {
           <h3 className="text-xl font-bold sm:text-2xl">Tech I Use</h3>
         </div>
         <div className="w-full overflow-hidden pt-6">
-          <div className="flex min-w-full items-center gap-8 whitespace-nowrap text-xl font-semibold sm:gap-10 sm:text-2xl md:text-3xl animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused]">
-            <span aria-hidden="true" className="pacman align-middle" />
+          <div className="flex min-w-[200%] items-center gap-8 whitespace-nowrap text-xl font-semibold sm:gap-10 sm:text-2xl md:text-3xl animate-[marquee_30s_linear_infinite]">
             {[...techStack, ...techStack].map((tech, idx) => (
               <span key={`${tech}-${idx}`} className="align-middle">
                 {tech}
               </span>
             ))}
-            <span aria-hidden="true" className="text-3xl sm:text-4xl text-red-500 align-middle">👻</span>
           </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
 
 
 

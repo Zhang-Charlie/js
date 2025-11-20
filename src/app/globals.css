@@ -31,53 +31,9 @@ body {
 
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
-  }
-}
-
-.pacman {
-  display: inline-block;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 50%;
-  background: conic-gradient(
-    #f7d21b 0deg,
-    #f7d21b 45deg,
-    transparent 45deg,
-    transparent 315deg,
-    #f7d21b 315deg
-  );
-  animation: chomp 0.4s steps(2) infinite;
-}
-
-@media (min-width: 640px) {
-  .pacman {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-@keyframes chomp {
-  0%,
-  100% {
-    background: conic-gradient(
-      #f7d21b 0deg,
-      #f7d21b 45deg,
-      transparent 45deg,
-      transparent 315deg,
-      #f7d21b 315deg
-    );
-  }
-  50% {
-    background: conic-gradient(
-      #f7d21b 0deg,
-      #f7d21b 0deg,
-      transparent 0deg,
-      transparent 360deg,
-      #f7d21b 360deg
-    );
+    transform: translateX(-50%);
   }
 }
