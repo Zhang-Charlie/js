@@ -1,0 +1,18 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Profile placeholder</title>
+  <desc id="desc">Abstract placeholder portrait</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0a2f95"/>
+      <stop offset="100%" stop-color="#3e63a3"/>
+    </linearGradient>
+  </defs>
+  <rect width="260" height="260" rx="16" fill="url(#bgGrad)"/>
+  <circle cx="130" cy="110" r="54" fill="#ffffff" opacity="0.9"/>
+  <circle cx="130" cy="105" r="42" fill="#d6e1f5"/>
+  <path d="M78 210c10-38 44-52 52-52s42 14 52 52H78z" fill="#ffffff" opacity="0.95"/>
+  <path d="M96 113c6 9 18 12 34 12s28-3 34-12-8-30-34-30-40 21-34 30z" fill="#f0f4ff"/>
+  <circle cx="110" cy="98" r="6" fill="#243b6b"/>
+  <circle cx="150" cy="98" r="6" fill="#243b6b"/>
+  <path d="M118 126c8 6 16 6 24 0" stroke="#243b6b" stroke-width="4" stroke-linecap="round"/>
+</svg>
