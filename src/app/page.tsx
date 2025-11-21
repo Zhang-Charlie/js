@@ -1,4 +1,19 @@
-import Image from "next/image"
+'use client'
+
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+
+type Project = {
+  title: string
+  description: string
+  liveUrl: string
+  githubUrl: string
+  imageSrc: string
+}
+type ProjectModalProps = {
+  project: Project
+  onClose: () => void
+}
 
 const techStack = [
   {
@@ -92,7 +107,7 @@ const tools = [
   },
 ]
 
-const projects = [
+const projects: Project[] = [
   {
     title: "ScholaFlow",
     description:
@@ -118,6 +133,7 @@ const projects = [
     imageSrc: "/projects/orca.png",
   },
 ]
+
 
 const certificates = [
   {
@@ -222,6 +238,108 @@ function ExternalLinkIcon({ className = "h-4 w-4" }) {
   )
 }
 
+function ProjectModal({ project, onClose }: ProjectModalProps) {
+
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(true)
+  }, [])
+
+  const handleClose = () => {
+    setOpen(false)
+    setTimeout(() => {
+      onClose()
+    }, 180)
+  }
+
+  if (!project) return null
+
+  return (
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-200 ${
+        open ? 'opacity-100' : 'opacity-0'
+      }`}
+      onClick={handleClose}
+    >
+      <div
+        className={`relative w-[96%] max-w-5xl max-h-[82vh] flex flex-col rounded-3xl bg-[#111111] px-8 py-6 shadow-[0_0_60px_rgba(0,0,0,0.7)] border border-[#1f1f1f] transform transition-transform duration-200 ${
+          open ? 'scale-100' : 'scale-95'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* top bar */}
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="text-2xl font-bold text-white">
+              {project.title}
+            </h3>
+            <p className="mt-1 text-sm text-slate-300">
+              A personal project exploring UI, layout, and interaction design
+            </p>
+          </div>
+
+          <button
+            onClick={handleClose}
+            className="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#1e1e1e] text-slate-300 hover:bg-[#272727] hover:text-white transition"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* subtle divider */}
+        <div className="mt-4 h-px w-full bg-white/5" />
+
+        {/* scrollable content */}
+        <div className="mt-4 flex-1 overflow-y-auto pr-1 space-y-5">
+          {/* screenshot */}
+          <div className="overflow-hidden rounded-xl border border-[#1f1f1f] bg-[#0a0a0a]">
+            <Image
+              src={project.imageSrc}
+              alt={project.title}
+              width={1200}
+              height={630}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+          {/* about section */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
+              About this project
+            </h4>
+            <p className="mt-2 text-sm leading-relaxed text-slate-300">
+              {project.description}
+            </p>
+          </div>
+
+          {/* actions */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg bg-white/10 px-4 py-2 text-sm text-slate-200 hover:bg-white/20 transition"
+            >
+              View GitHub
+            </a>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-black hover:opacity-90 transition"
+            >
+              Visit live project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+
 export function TechStackSection() {
   return (
     <section className="w-full bg-[#111111] px-4 pt-4 pb-12 text-slate-100 sm:px-6 sm:pt-6">
@@ -257,6 +375,10 @@ export function TechStackSection() {
 }
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
+
+
   return (
     <main className="flex flex-col">
       {/* hero */}
@@ -346,70 +468,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* projects */}
-      <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
-        <div className="mx-auto max-w-6xl space-y-8">
-          <h3 className="text-lg font-semibold sm:text-xl">Recent projects</h3>
-          <div className="grid gap-8 md:grid-cols-3">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-4 shadow-lg transition-transform duration-200 hover:-translate-y-1"
-              >
-                {/* framed screenshot with background behind website */}
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block"
-                >
-                  <div className="rounded-[1.6rem] bg-[#050509] p-2 shadow-[0_18px_50px_rgba(0,0,0,0.6)]">
-                    <div className="rounded-[1.3rem] bg-[#111827] p-2">
-                      <div className="aspect-video overflow-hidden rounded-[1.1rem]">
-                        <Image
-                          src={project.imageSrc}
-                          alt={project.title}
-                          width={1280}
-                          height={720}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </a>
+      {/* PROJECTS SECTION */}
+<section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
+  <div className="mx-auto max-w-6xl space-y-8">
+    <h3 className="text-lg font-semibold sm:text-xl">Recent projects</h3>
 
-                <div className="mt-4 flex items-center gap-3">
-                  <h4 className="text-lg font-semibold text-white">
-                    {project.title}
-                  </h4>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded p-1 transition-colors duration-150 hover:bg-white/10"
-                    >
-                      <GithubIcon className="h-4 w-4" />
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded p-1 transition-colors duration-150 hover:bg-white/10"
-                    >
-                      <ExternalLinkIcon className="h-4 w-4" />
-                    </a>
-                  </div>
-                </div>
-
-                <p className="mt-2 text-sm text-slate-300">
-                  {project.description}
-                </p>
+    <div className="grid gap-8 md:grid-cols-3">
+      {projects.map((project) => (
+        <div
+          key={project.title}
+          className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-4 shadow-lg transition-transform duration-200 hover:-translate-y-1 cursor-pointer"
+          onClick={() => setSelectedProject(project)}
+        >
+          {/* screenshot */}
+          <div className="rounded-[1.6rem] bg-[#050509] p-2 shadow-[0_18px_50px_rgba(0,0,0,0.6)]">
+            <div className="rounded-[1.3rem] bg-[#111827] p-2">
+              <div className="aspect-video overflow-hidden rounded-[1.1rem]">
+                <Image
+                  src={project.imageSrc}
+                  alt={project.title}
+                  width={1280}
+                  height={720}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            ))}
+            </div>
           </div>
+
+          {/* title + links */}
+          <div className="mt-4 flex items-center gap-3">
+            <h4 className="text-lg font-semibold text-white">
+              {project.title}
+            </h4>
+            <div className="flex items-center gap-2 text-slate-300">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="rounded p-1 transition-colors duration-150 hover:bg-white/10"
+              >
+                <GithubIcon className="h-4 w-4" />
+              </a>
+
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="rounded p-1 transition-colors duration-150 hover:bg-white/10"
+              >
+                <ExternalLinkIcon className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          <p className="mt-2 text-sm text-slate-300">
+            {project.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+{selectedProject && (
+  <ProjectModal
+    project={selectedProject}
+    onClose={() => setSelectedProject(null)}
+  />
+)}
 
       {/* Education Section */}
       <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
