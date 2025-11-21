@@ -64,7 +64,7 @@ const tools = [
   },
   {
     name: "GitHub",
-    src: "/logos/github.svg",
+    src: "/logos/github.png",
   },
   {
     name: "VS Code",
@@ -431,15 +431,19 @@ export default function Home() {
     </div>
 
     <div>
-      <h4 className="text-2xl font-bold text-white">
+            <h4 className="text-2xl font-bold text-white">
         University College Dublin
       </h4>
       <p className="mt-1 text-base text-slate-300">
-        <strong>BSc Computer Science with Data Science &amp; AI</strong>{" "}
-        <span className="text-slate-400">(Sep 2023 – May 2027)</span>
-        <br />
-        <span className="text-slate-300">Dublin, Ireland</span>
+        <strong>BSc Computer Science with Data Science &amp; AI</strong>
       </p>
+      <p className="text-sm text-slate-400">
+        Sep 2023 – May 2027
+      </p>
+      <p className="text-sm text-slate-300">
+        Dublin, Ireland
+      </p>
+
     </div>
   </div>
 
@@ -762,7 +766,7 @@ export default function Home() {
             className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 transition hover:border-[var(--color-accent)]/80 hover:bg-[var(--color-accent)]/10 hover:-translate-y-0.5"
           >
             <img
-              src="/logos/github.svg"
+              src="/logos/github.png"
               alt="GitHub"
               className="h-4 w-4"
             />
@@ -770,17 +774,20 @@ export default function Home() {
           </a>
 
           {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/zhang-charlie/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 transition hover:border-[var(--color-accent)]/80 hover:bg-[var(--color-accent)]/10 hover:-translate-y-0.5"
-          >
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0a66c2] text-[10px] font-bold text-white">
-              in
-            </span>
-            <span>LinkedIn</span>
-          </a>
+<a
+  href="https://www.linkedin.com/in/zhang-charlie/"
+  target="_blank"
+  rel="noreferrer"
+  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 transition hover:border-[var(--color-accent)]/80 hover:bg-[var(--color-accent)]/10 hover:-translate-y-0.5"
+>
+  <img
+    src="/logos/linkedin.svg"
+    alt="LinkedIn"
+    className="h-5 w-5 object-contain"
+  />
+  <span>LinkedIn</span>
+</a>
+
         </div>
       </div>
     </div>
