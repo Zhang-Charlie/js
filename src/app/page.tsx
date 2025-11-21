@@ -297,7 +297,7 @@ export default function Home() {
         <div>
           <h4 className="text-2xl font-bold text-white">University College Dublin</h4>
           <p className="mt-1 text-base text-slate-300">
-            <strong>BSc Computer Science with Data Science &amp; AI</strong> (2023 – Present)
+            <strong>BSc Computer Science with Data Science &amp; AI</strong> (2023 – 2027)
             <br />
             Dublin, Ireland
           </p>
@@ -332,83 +332,134 @@ export default function Home() {
     </div>
   </div>
 </section>
-
 {/* Experience Section */}
 <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
-  <div className="mx-auto max-w-6xl space-y-8">
-    <h3 className="text-lg font-semibold sm:text-xl">Experience</h3>
+  <div className="mx-auto max-w-5xl space-y-12">
+    <h3 className="text-lg font-semibold sm:text-xl mb-6">Experience</h3>
 
-    <div className="grid gap-6 md:grid-cols-2">
-      {/* UCD Leadership & Involvement */}
-      <div className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-6 shadow-lg">
-        <h4 className="text-xl font-semibold text-white">
-          University College Dublin
-        </h4>
-        <p className="mt-1 text-sm text-slate-300">
-          Student Leadership &amp; Societies · 2023 – Present
-        </p>
+    <div className="relative">
+      {/* Vertical timeline line */}
+      <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-[#1f1f1f]"></div>
 
-        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
-          <li>• Class Representative for ~150 Computer Science students</li>
-          <li>• Student Representative on the Science Taught Programmes Board</li>
-          <li>• Ordinary Committee Member — UCD NetSoc</li>
-          <li>• Peer Mentor &amp; Access Leader, supporting new and prospective students</li>
-        </ul>
-      </div>
+      <div className="space-y-20">
 
-      {/* Formula Student / Technical Experience */}
-      <div className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-6 shadow-lg">
-        <h4 className="text-xl font-semibold text-white">
-          UCD Formula Student — Powertrain
-        </h4>
-        <p className="mt-1 text-sm text-slate-300">
-          Vehicle Control &amp; Embedded Software · 2024 – Present
-        </p>
+        {/* Experience 1 — UCD Leadership (Logo left, Text right) */}
+        <div className="relative flex items-center">
+          {/* Logo */}
+          <div className="flex w-1/2 justify-end pr-6">
+            <Image
+              src="/logos/ucd-logo.png"
+              alt="UCD Logo"
+              width={120}
+              height={120}
+              className="h-24 w-auto"
+            />
+          </div>
 
-        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
-          <li>• Contributing to Vehicle Control Unit (VCU) software in C / C++</li>
-          <li>• Working with sensors, dashboards, and real-hardware testing</li>
-          <li>• Collaborating with a multidisciplinary team on reliability and safety</li>
-        </ul>
-      </div>
+          {/* Timeline dot */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-5 w-5 rounded-full bg-[var(--color-accent)] border-4 border-[#0f0f0f]"></div>
 
-      {/* Projects */}
-      <div className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-6 shadow-lg">
-        <h4 className="text-xl font-semibold text.white">
-          Software &amp; Technical Projects
-        </h4>
-        <p className="mt-1 text-sm text-slate-300">
-          Personal &amp; University Projects
-        </p>
+          {/* Text */}
+          <div className="w-1/2 pl-6">
+            <h4 className="text-xl font-semibold">University College Dublin</h4>
+            <p className="text-sm text-slate-300">Leadership &amp; Societies · 2023 – Present</p>
+            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+              <li>• Class Representative for ~150 students</li>
+              <li>• Student Rep — Science Taught Programmes Board</li>
+              <li>• UCD NetSoc Ordinary Committee Member</li>
+              <li>• Peer Mentor &amp; Access Leader</li>
+            </ul>
+          </div>
+        </div>
 
-        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
-          <li>• <strong>Orca Website</strong> — HTML &amp; CSS site focusing on layout, accessibility, and ocean conservation content</li>
-          <li>• <strong>HexOust</strong> — Java hex-grid strategy game using OOP and Git collaboration</li>
-          <li>• <strong>PathPilot</strong> — AI-powered student-skills recommender built for the Google AI Student Hackathon</li>
-          <li>• Additional experiments in React, TypeScript, data structures, and algorithm visualisation</li>
-        </ul>
-      </div>
+        {/* Experience 2 — Formula Student (Logo right, Text left) */}
+        <div className="relative flex items-center">
+          {/* Text */}
+          <div className="w-1/2 text-right pr-6">
+            <h4 className="text-xl font-semibold">UCD Formula Student — Powertrain</h4>
+            <p className="text-sm text-slate-300">Vehicle Control Software · 2024 – Present</p>
+            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+              <li>• Working on Vehicle Control Unit (VCU) software</li>
+              <li>• Embedded C/C++ for sensors &amp; dashboard logic</li>
+              <li>• Real-hardware testing and reliability improvements</li>
+            </ul>
+          </div>
 
-      {/* Work & Volunteering */}
-      <div className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-6 shadow-lg">
-        <h4 className="text-xl font-semibold text-white">
-          Work &amp; Volunteering
-        </h4>
-        <p className="mt-1 text-sm text-slate-300">
-          Customer-facing &amp; operational roles
-        </p>
+          {/* Timeline dot */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-5 w-5 rounded-full bg-[var(--color-accent)] border-4 border-[#0f0f0f]"></div>
 
-        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
-          <li>• Cafe assistant at Ocean Catering &amp; Hospitality Services</li>
-          <li>• Team member at The Coffee Bean, Dublin</li>
-          <li>• Part-time warehouse operative at Uniphar Group and Amazon Ireland</li>
-          <li>• Work experience at St Mary&apos;s Hospital, Phoenix Park</li>
-        </ul>
+          {/* Logo */}
+          <div className="w-1/2 pl-6">
+            <Image
+              src="/logos/formula.png"
+              alt="Formula Student"
+              width={120}
+              height={120}
+              className="h-24 w-auto"
+            />
+          </div>
+        </div>
+
+        {/* Experience 3 — Personal Projects (Logo left, Text right) */}
+        <div className="relative flex items-center">
+          {/* Logo */}
+          <div className="flex w-1/2 justify-end pr-6">
+            <Image
+              src="/logos/projects.png"
+              alt="Projects Logo"
+              width={120}
+              height={120}
+              className="h-24 w-auto"
+            />
+          </div>
+
+          {/* Dot */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-5 w-5 rounded-full bg-[var(--color-accent)] border-4 border-[#0f0f0f]"></div>
+
+          {/* Text */}
+          <div className="w-1/2 pl-6">
+            <h4 className="text-xl font-semibold">Software &amp; Technical Projects</h4>
+            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+              <li>• Orca Website — HTML/CSS project</li>
+              <li>• HexOust — Java strategy game</li>
+              <li>• PathPilot — Google AI Hackathon (3rd place)</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Experience 4 — Work Experience (Logo right, Text left) */}
+        <div className="relative flex items-center">
+          {/* Text */}
+          <div className="w-1/2 text-right pr-6">
+            <h4 className="text-xl font-semibold">Work &amp; Volunteering</h4>
+            <p className="text-sm text-slate-300">Customer-facing &amp; Ops Roles</p>
+            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+              <li>• Ocean Catering &amp; Hospitality</li>
+              <li>• The Coffee Bean (Dublin)</li>
+              <li>• Warehouse Operative — Amazon &amp; Uniphar Group</li>
+              <li>• St. Mary&apos;s Hospital work experience</li>
+            </ul>
+          </div>
+
+          {/* Dot */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-5 w-5 rounded-full bg-[var(--color-accent)] border-4 border-[#0f0f0f]"></div>
+
+          {/* Logo */}
+          <div className="w-1/2 pl-6">
+            <Image
+              src="/logos/work.png"
+              alt="Work Experience Logo"
+              width={120}
+              height={120}
+              className="h-24 w-auto"
+            />
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
-
 
 
     </main>
