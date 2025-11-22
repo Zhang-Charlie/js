@@ -250,7 +250,7 @@ const projects: Project[] = [
       "Classroom dashboard concept with colorful course cards and a clean UI layout.",
     liveUrl: "https://orca-website-ten.vercel.app/",
     githubUrl: "https://github.com/trevorphilbrick/orca-website-ten",
-    imageSrc: "/projects/orca-website.png",
+    imageSrc: "/projects/Orca-website.png",
   },
   {
     title: "Queyk Dashboard",
