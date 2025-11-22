@@ -93,17 +93,17 @@ const education = [
     ],
     coursework: [
       "Algorithms & Data Structures",
-      "Operating Systems in x86 Assembly, RISC-V, & Linux",
+      "Operating Systems (x86, RISC-V, Linux)",
       "Computer Networking",
-      "Databases & Information Systems (SQL)",
-      "Software Engineering Project (C & Java)",
-      "Data Science in Python",
-      "Introduction to AI",
-      "Information Security",
-      "Discrete Mathematics & Formal Foundations",
-      "Linear Algebra, Probability & Statistics with Python",
+      "Databases & SQL",
+      "Software Engineering (C & Java)",
+      "Python for Data Science",
+      "Introduction to AI & Information Security",
+      "Discrete Mathematics & Linear Algebra",
+      "Probability & Statistics with Python",
       "Functional Programming in Scheme",
-      "Programming experience with Java, C, Python, SQL, Scheme, and x86 Assembly",
+      "Experience with Java, C, Python, SQL, Scheme, and x86 Assembly",
+
 
     ],
   },
@@ -166,6 +166,56 @@ const tools = [
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg",
   },
 ]
+
+export const experience = [
+  {
+    title: "University College Dublin",
+    subtitle: "Leadership & Societies · 2023 – Present",
+    logo: "/logos/ucd-logo.png",
+    side: "right", // text on the right, logo on the left
+    points: [
+      "SU Class Representative for ~150 students",
+      "Represented 1,200+ Computer Science students on the Science Taught Programmes Board (STPB)",
+      "UCD NetSoc Ordinary Committee Member",
+      "Peer Mentor & Access Leader"
+    ]
+  },
+  {
+    title: "UCD Formula Student — Powertrain",
+    subtitle: "Vehicle Control Software · 2024 – Present",
+    logo: "/logos/formula.png",
+    side: "left", // text on the left, logo on the right
+    points: [
+      "Working on Vehicle Control Unit (VCU) software",
+      "Embedded C/C++ for sensors & dashboard logic",
+      "Real-hardware testing and reliability improvements"
+    ]
+  },
+  {
+    title: "Software & Technical Projects",
+    subtitle: "Personal & Team Projects",
+    logo: "/logos/projects.png",
+    side: "right",
+    points: [
+      "Orca Website — HTML/CSS project",
+      "HexOust — Java strategy game",
+      "PathPilot — Google AI Hackathon (3rd place)"
+    ]
+  },
+  {
+    title: "Work & Volunteering",
+    subtitle: "Customer-facing & Ops Roles",
+    logo: "/logos/work.png",
+    side: "left",
+    points: [
+      "Ocean Catering & Hospitality",
+      "The Coffee Bean (Dublin)",
+      "Warehouse Operative — Amazon & Uniphar Group",
+      "St. Mary's Hospital work experience"
+    ]
+  }
+]
+
 
 const projects: Project[] = [
   {
@@ -599,223 +649,89 @@ export default function Home() {
     onClose={() => setSelectedProject(null)}
   />
 )}
-{/* Education */}
+{/* Experience Section */}
 <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
-  <div className="mx-auto max-w-6xl space-y-8">
-    <h3 className="text-lg font-semibold sm:text-xl">Education</h3>
+  <div className="mx-auto max-w-5xl space-y-12">
+    <h3 className="mb-6 text-lg font-semibold sm:text-xl">Experience</h3>
 
-    {education.map((edu) => (
-      <div
-        key={edu.school}
-        className="rounded-2xl border border-[#1f1f1f] bg-[#121212] p-6 shadow-lg"
-      >
-        {/* top: logo + main text */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-          <div className="shrink-0">
-            <Image
-              src={edu.logo}
-              alt={`${edu.school} logo`}
-              width={edu.width}
-              height={edu.height}
-              className="h-40 w-auto"
-            />
-          </div>
+    <div className="relative">
+      {/* vertical timeline line */}
+      <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-[#1f1f1f]" />
 
-          <div>
-            <h4 className="text-2xl font-bold text-white">{edu.school}</h4>
+      <div className="space-y-20">
+        {experience.map((item) => {
+          const textOnRight = item.side === "right"
 
-            <p className="mt-1 text-base text-slate-300">
-              <strong>{edu.degree}</strong>
-            </p>
+          return (
+            <div key={item.title} className="relative flex items-center">
+              {/* logo left / text right */}
+              {textOnRight && (
+                <>
+                  {/* logo */}
+                  <div className="flex w-1/2 justify-end pr-6">
+                    <Image
+                      src={item.logo}
+                      alt={item.title}
+                      width={120}
+                      height={120}
+                      className="h-24 w-auto"
+                    />
+                  </div>
 
-            <p className="text-sm text-slate-400">{edu.dates}</p>
-            <p className="text-sm text-slate-300">{edu.location}</p>
+                  {/* dot */}
+                  <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]" />
 
-            {edu.grade && (
-              <p className="mt-1 text-sm text-slate-300">
-                Grade: <strong>{edu.grade}</strong>
-              </p>
-            )}
-          </div>
-        </div>
+                  {/* text */}
+                  <div className="w-1/2 pl-6">
+                    <h4 className="text-xl font-semibold">{item.title}</h4>
+                    <p className="text-sm text-slate-300">{item.subtitle}</p>
+                    <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                      {item.points.map((point) => (
+                        <li key={point}>• {point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
 
-        {/* bottom: highlights + coursework */}
-        <div className="mt-6">
-          <div className="grid gap-6 sm:ml-[11rem] sm:grid-cols-2">
-            {/* Highlights */}
-            <div>
-              <h5 className="mb-2 text-xl font-semibold text-white">
-                Highlights
-              </h5>
-              <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed text-slate-300">
-                {edu.highlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {/* text left / logo right */}
+              {!textOnRight && (
+                <>
+                  {/* text */}
+                  <div className="w-1/2 pr-6 text-right">
+                    <h4 className="text-xl font-semibold">{item.title}</h4>
+                    <p className="text-sm text-slate-300">{item.subtitle}</p>
+                    <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                      {item.points.map((point) => (
+                        <li key={point}>• {point}</li>
+                      ))}
+                    </ul>
+                  </div>
 
+                  {/* dot */}
+                  <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]" />
+
+                  {/* logo */}
+                  <div className="w-1/2 pl-6">
+                    <Image
+                      src={item.logo}
+                      alt={item.title}
+                      width={120}
+                      height={120}
+                      className="h-24 w-auto"
+                    />
+                  </div>
+                </>
+              )}
             </div>
-
-            {/* Technical Coursework */}
-            <div>
-              <h5 className="mb-2 text-lg font-semibold text-white">
-                Technical Coursework
-              </h5>
-              <ul className="list-disc pl-6 space-y-2 text-sm leading-relaxed text-slate-300">
-                {edu.coursework.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
-        </div>
+          )
+        })}
       </div>
-    ))}
+    </div>
   </div>
 </section>
 
 
-
-      {/* Experience Section */}
-      <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100 sm:px-6">
-        <div className="mx-auto max-w-5xl space-y-12">
-          <h3 className="mb-6 text-lg font-semibold sm:text-xl">Experience</h3>
-
-          <div className="relative">
-            {/* Vertical timeline line */}
-            <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-[#1f1f1f]"></div>
-
-            <div className="space-y-20">
-              {/* Experience 1 — UCD Leadership (Logo left, Text right) */}
-              <div className="relative flex items-center">
-                {/* Logo */}
-                <div className="flex w-1/2 justify-end pr-6">
-                  <Image
-                    src="/logos/ucd-logo.png"
-                    alt="UCD Logo"
-                    width={120}
-                    height={120}
-                    className="h-24 w-auto"
-                  />
-                </div>
-
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]"></div>
-
-                {/* Text */}
-                <div className="w-1/2 pl-6">
-                  <h4 className="text-xl font-semibold">
-                    University College Dublin
-                  </h4>
-                  <p className="text-sm text-slate-300">
-                    Leadership &amp; Societies · 2023 – Present
-                  </p>
-                  <ul className="mt-3 space-y-1 text-sm text-slate-400">
-                    <li>• Class Representative for ~150 students</li>
-                    <li>• Student Rep — Science Taught Programmes Board</li>
-                    <li>• UCD NetSoc Ordinary Committee Member</li>
-                    <li>• Peer Mentor &amp; Access Leader</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Experience 2 — Formula Student (Logo right, Text left) */}
-              <div className="relative flex items-center">
-                {/* Text */}
-                <div className="w-1/2 pr-6 text-right">
-                  <h4 className="text-xl font-semibold">
-                    UCD Formula Student — Powertrain
-                  </h4>
-                  <p className="text-sm text-slate-300">
-                    Vehicle Control Software · 2024 – Present
-                  </p>
-                  <ul className="mt-3 space-y-1 text-sm text-slate-400">
-                    <li>• Working on Vehicle Control Unit (VCU) software</li>
-                    <li>• Embedded C/C++ for sensors &amp; dashboard logic</li>
-                    <li>• Real-hardware testing and reliability improvements</li>
-                  </ul>
-                </div>
-
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]"></div>
-
-                {/* Logo */}
-                <div className="w-1/2 pl-6">
-                  <Image
-                    src="/logos/formula.png"
-                    alt="Formula Student"
-                    width={120}
-                    height={120}
-                    className="h-24 w-auto"
-                  />
-                </div>
-              </div>
-
-              {/* Experience 3 — Personal Projects (Logo left, Text right) */}
-              <div className="relative flex items-center">
-                {/* Logo */}
-                <div className="flex w-1/2 justify-end pr-6">
-                  <Image
-                    src="/logos/projects.png"
-                    alt="Projects Logo"
-                    width={120}
-                    height={120}
-                    className="h-24 w-auto"
-                  />
-                </div>
-
-                {/* Dot */}
-                <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]"></div>
-
-                {/* Text */}
-                <div className="w-1/2 pl-6">
-                  <h4 className="text-xl font-semibold">
-                    Software &amp; Technical Projects
-                  </h4>
-                  <ul className="mt-3 space-y-1 text-sm text-slate-400">
-                    <li>• Orca Website — HTML/CSS project</li>
-                    <li>• HexOust — Java strategy game</li>
-                    <li>• PathPilot — Google AI Hackathon (3rd place)</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Experience 4 — Work Experience (Logo right, Text left) */}
-              <div className="relative flex items-center">
-                {/* Text */}
-                <div className="w-1/2 pr-6 text-right">
-                  <h4 className="text-xl font-semibold">
-                    Work &amp; Volunteering
-                  </h4>
-                  <p className="text-sm text-slate-300">
-                    Customer-facing &amp; Ops Roles
-                  </p>
-                  <ul className="mt-3 space-y-1 text-sm text-slate-400">
-                    <li>• Ocean Catering &amp; Hospitality</li>
-                    <li>• The Coffee Bean (Dublin)</li>
-                    <li>• Warehouse Operative — Amazon &amp; Uniphar Group</li>
-                    <li>• St. Mary&apos;s Hospital work experience</li>
-                  </ul>
-                </div>
-
-                {/* Dot */}
-                <div className="absolute left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#0f0f0f] bg-[var(--color-accent)]"></div>
-
-                {/* Logo */}
-                <div className="w-1/2 pl-6">
-                  <Image
-                    src="/logos/work.png"
-                    alt="Work Experience Logo"
-                    width={120}
-                    height={120}
-                    className="h-24 w-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CERTIFICATES */}
       <section className="w-full bg-[#0f0f0f] px-4 py-14 text-slate-100">
