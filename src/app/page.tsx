@@ -231,7 +231,7 @@ export const experience = [
   {
     title: "Warehouse Operative",
     subtitle: "Amazon · Aug 2022 – Oct 2022 · Full-time",
-    logo: "/logos/amazon.png",
+    logo: "/logos/amazon-new.png",
     side: "left",
     points: [
       "Supported the launch of Amazon’s first fulfilment facility in Ireland, assisting with setup and daily operations",
