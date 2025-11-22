@@ -713,9 +713,9 @@ export default function Home() {
                   <div className="w-1/2 pl-6">
                     <h4 className="text-xl font-semibold">{item.title}</h4>
                     <p className="text-sm text-slate-300">{item.subtitle}</p>
-                    <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                    <ul className="mt-3 space-y-1 text-sm text-slate-400 list-disc list-outside pl-5">
                       {item.points.map((point) => (
-                        <li key={point}>• {point}</li>
+                        <li key={point}>{point}</li>
                       ))}
                     </ul>
                   </div>
@@ -726,14 +726,15 @@ export default function Home() {
               {!textOnRight && (
                 <>
                   {/* text */}
-                  <div className="w-1/2 pr-6 text-right">
+                  <div className="w-1/2 pr-6 text-left">
                     <h4 className="text-xl font-semibold">{item.title}</h4>
                     <p className="text-sm text-slate-300">{item.subtitle}</p>
-                    <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                    <ul className="mt-3 space-y-1 text-sm text-slate-400 list-disc list-outside pl-5">
                       {item.points.map((point) => (
-                        <li key={point}>• {point}</li>
+                        <li key={point}>{point}</li>
                       ))}
                     </ul>
+
                   </div>
 
                   {/* dot */}
