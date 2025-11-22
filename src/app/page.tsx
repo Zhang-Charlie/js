@@ -317,13 +317,20 @@ const projects: Project[] = [
   },
 
   {
-    title: "Used Car Market Analysis",
-    description:
-      "End-to-end Python data project: scraped used car listings, cleaned the dataset, loaded it into SQLite, and performed analytical SQL queries with visual insights using Pandas and Matplotlib.",
-    liveUrl: "#",  
-    githubUrl: "#",                   // add repo
-    imageSrc: "/projects/car-analysis.png",
-  },
+  title: "Used Car Price Analysis & Prediction",
+  description:
+    "A full data science project analysing and predicting used car prices using real-market data. Includes data scraping, cleaning, feature engineering, exploratory visualisations, and regression models to understand how mileage, age, fuel type, and body style affect price.",
+  imageSrc: "/projects/price_vs_mileage.png", 
+  githubUrl: "https://github.com/Zhang-Charlie/used-car-price-analysis",
+},
+
+]
+const usedCarPriceAnalysisHighlights = [
+  "Scraped and processed a real-world used car dataset for the Irish market",
+  "Cleaned messy fields such as prices, mileage formats, and inconsistent dates",
+  "Engineered features from make, model, year, body type, transmission, and fuel type",
+  "Built and evaluated regression models to predict sale price from car attributes",
+  "Created clear visualisations, including price vs mileage, to explain key trends",
 ]
 
 
@@ -542,6 +549,13 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
               </ul>
             )}
           </div>
+                        {project.title === "Used Car Price Analysis & Prediction" && (
+              <ul className="mt-4 space-y-2 text-sm text-slate-300 list-disc list-inside">
+                {usedCarPriceAnalysisHighlights.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            )}
 
           {/* PathPilot video */}
           {project.title === "PathPilot" && (
