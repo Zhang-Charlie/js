@@ -9,7 +9,7 @@ export const certificates: Certificate[] = [
     url: "#",
   },
   {
-    title: "TryHackMe Cybersecurity Training",
+    title: "Pre Security",
     issuer: "TryHackMe",
     date: "Issued Nov 2025",
     logo: "/logos/tryhackme.png",
