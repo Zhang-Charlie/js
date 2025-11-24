@@ -2,6 +2,7 @@ import { TopBar } from "@/components/layout/top-bar"
 import { AboutSection } from "@/components/sections/about-section"
 import { CertificatesSection } from "@/components/sections/certificates-section"
 import { ContactSection } from "@/components/sections/contact-section"
+import { EducationSection } from "@/components/sections/education-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
 import { HeroSection } from "@/components/sections/hero-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
@@ -16,10 +17,8 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <TechStackSection />
-        <section id="education" className="sr-only">
-          Education
-        </section>
         <ToolsSection />
+        <EducationSection />
         <ProjectsSection />
         <ExperienceSection />
         <CertificatesSection />
